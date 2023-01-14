@@ -15,7 +15,8 @@ operating system and application configuration.
 ## How to customize where the application logs are written?
 
 - The location of the application logs can be customized by editing the,
-application configuration files. Refer to the application documentation for specific instructions.
+- application configuration files. Refer to the application documentation for
+- specific instructions.
 
 ## How to “quickly” verify that the application is running (healthcheck)?
 
