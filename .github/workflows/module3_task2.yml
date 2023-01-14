@@ -1,0 +1,43 @@
+name: module3_task2
+
+on:
+  push:
+    branches: [master]
+  schedule:
+    - cron: "30 00 * * *"
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+
+    steps:
+      - name: "Checkout" #download code from the repo
+        uses: actions/checkout@v3
+
+      - name: "Setup"
+        run: cd module3_task2 && ./setup.sh
+
+      - name: "Run make build" #execute makebuild command
+        run: cd module3_task2 && make build
+
+      # Check syntax on markdown files
+      - name: Run markdownlint on markdown files
+        run: make lint -C module3_task2/
+
+      # Produce a zip file containing the dist folder
+      - name: "Archive the dist folder inside a zip file"
+        run: make package -C module3_task2/
+
+      # Additional steps form past module
+      - name: "Run additional make rules"
+        run: |
+          make unit-tests -C module3_task2/
+          make integration-tests -C module3_task2/
+          make validate -C module3_task2/
+
+      # Archive the zip file as artifact
+      - name: "Archive code coverage results"
+        uses: actions/upload-artifact@v3
+        with:
+          name: Archive awesome-website.zip as artifact
+          path: module3_task2/awesome-website.zip
