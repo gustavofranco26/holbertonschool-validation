@@ -2,7 +2,7 @@ name: module3_task2
 
 on:
   push:
-    branches: [master]
+    # branches: [master]
   schedule:
     - cron: "30 00 * * *"
 
@@ -33,14 +33,14 @@ jobs:
         run: make build -C module3_task2/
 
       # Additional steps form past module
-      - name: "Run additional make rules"
+      - name: Run additional make rules
         run: |
           make unit-tests -C module3_task2/
           make integration-tests -C module3_task2/
           make validate -C module3_task2/
 
       # Archive the zip file as artifact
-      - name: "Archive code coverage results"
+      - name: Archive code coverage results
         uses: actions/upload-artifact@v3
         with:
           name: Archive awesome-website.zip as artifact
