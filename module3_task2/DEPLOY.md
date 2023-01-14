@@ -1,4 +1,4 @@
-#Deployment
+# Deployment"
 
 The Start the hugo website and configure it.
 
@@ -17,7 +17,6 @@ To start the application on a Linux operating system: ./start_app.sh
 To stop the application on a Linux operating system: ./stop_app.sh
 To start the application on a Windows operating system: start_app.bat
 To stop the application on a Windows operating system: stop_app.bat
-
 
 ## How to customize where the application logs are written?
 The location of the application logs can be customized by editing the,
