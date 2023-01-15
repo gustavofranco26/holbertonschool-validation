@@ -26,7 +26,8 @@ jobs:
 
       # Produce a zip file containing the dist folder
       - name: Archive the dist folder inside a zip file
-        run: make package -C module3_task2/
+        run: |
+          cd module3_task2 && make package
 
       # Go to the right folder and execute 'make build'
       - name: Build the application
