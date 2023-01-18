@@ -1,8 +1,9 @@
+---
 name: module3_task2
 
 on:
   push:
-    branches: [master] [main]
+    branches: [master] 
   schedule:
     - cron: "30 00 * * *"
 
@@ -11,7 +12,7 @@ jobs:
     runs-on: ubuntu-18.04
 
     steps:
-      - name: "Checkout" #download code from the repo
+      - name: "Checkout"
         uses: actions/checkout@v3
 
       - name: "Setup"
